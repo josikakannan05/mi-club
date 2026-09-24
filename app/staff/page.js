@@ -64,7 +64,7 @@ export default function StaffPage() {
 
           <div className="about2-image flex justify-center">
             <div className="logo-circle w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-white p-3 border-8 border-[#243b78] shadow-2xl overflow-hidden transition-transform duration-500 hover:rotate-3 hover:scale-105">
-              <img src="/images/staff1.png" alt="Dr. M. Punitha" className="w-full h-full object-cover object-top rounded-full" />
+              <img src="/images/staff 1.jpg" alt="Dr. M. Punitha" className="w-full h-full object-cover object-top rounded-full" />
             </div>
           </div>
         </div>
