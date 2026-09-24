@@ -1,0 +1,306 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Event Enrollment | MI Club</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: linear-gradient(135deg, #d7f7fa, #f8f4fa, #e3eaff);
+        padding: 30px;
+      }
+      .box {
+        max-width: 650px;
+        margin: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 18px 50px #0002;
+      }
+      .title {
+        text-align: center;
+        color: #563ed9;
+        font-size: 30px;
+        font-weight: 900;
+      }
+      .sub {
+        text-align: center;
+        color: #777;
+        margin: 8px 0 25px;
+      }
+      .g {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 9px;
+        box-sizing: border-box;
+      }
+      input[readonly] {
+        background: #f4f4f4;
+      }
+      .btn {
+        width: 100%;
+        padding: 13px;
+        border: 0;
+        border-radius: 9px;
+        background: #563ed9;
+        color: #fff;
+        font-weight: 800;
+        margin-top: 6px;
+        cursor: pointer;
+      }
+      .back {
+        background: #fff;
+        color: #555;
+        border: 1px solid #ccc;
+      }
+      .msg {
+        display: none;
+        margin-top: 15px;
+        padding: 12px;
+        border-radius: 9px;
+        text-align: center;
+        font-weight: 700;
+      }
+
+      .certificate-upload {
+        background: rgba(255, 255, 255, 0.35);
+        border: 2px dashed rgba(86, 62, 217, 0.45);
+        border-radius: 14px;
+        padding: 22px;
+        text-align: center;
+        transition: 0.3s ease;
+      }
+
+      .certificate-upload:hover {
+        background: rgba(255, 255, 255, 0.55);
+        border-color: #563ed9;
+      }
+
+      .certificate-upload input[type="file"] {
+        width: 100%;
+        border: 0;
+        background: transparent;
+        padding: 8px;
+        cursor: pointer;
+      }
+
+      .certificate-upload small {
+        display: block;
+        margin-top: 8px;
+        color: #777;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="title">𝓜𝓘 𝓒𝓛𝓤𝓑</div>
+      <div class="sub">Event Enrollment</div>
+      <form id="f">
+        <div class="g"><label>Name</label><input id="name" readonly /></div>
+        <div class="g">
+          <label>Register Number</label><input id="reg" readonly />
+        </div>
+        <div class="g"><label>Batch</label><input id="batch" readonly /></div>
+        <div class="g"><label>Domain</label><input id="domain" readonly /></div>
+        <div class="g">
+          <label>Event Type</label
+          ><select id="type" required>
+            <option value="">Select</option>
+            <option>Inter College</option>
+            <option>Outer College</option>
+          </select>
+        </div>
+        <div class="g"><label>Venue</label><input id="venue" required /></div>
+        <div class="g">
+          <label>Participant Event</label
+          ><select id="event" required>
+            <option value="">Select</option>
+            <option>Quiz</option>
+            <option>Debugging</option>
+            <option>Paper Presentation</option>
+            <option>Code Relay</option>
+            <option>Web Designing</option>
+            <option>Logo Designing</option>
+            <option>Hackthon</option>
+          </select>
+        </div>
+        <div class="g">
+          <label>Status</label
+          ><select id="status" required>
+            <option value="">Select</option>
+            <option>Winner</option>
+            <option>Runner</option>
+            <option>Participant</option>
+          </select>
+        </div>
+        <div class="g">
+          <label>Event Date</label><input type="date" id="date" required />
+        </div>
+
+        <div class="g">
+          <label>Certificate</label>
+
+          <div class="certificate-upload">
+            <input
+              type="file"
+              id="certificate"
+              accept="image/png,image/jpeg,image/jpg,application/pdf"
+            />
+
+            <small>
+              Upload certificate as Image or PDF
+              <br />
+              JPG, PNG, JPEG or PDF
+            </small>
+          </div>
+        </div>
+
+        <button class="btn">Submit Event Enrollment</button
+        ><button
+          type="button"
+          class="btn back"
+          onclick="location.href = 'club-card.html'"
+        >
+          ← Back to Club Card
+        </button>
+      </form>
+      <div id="msg" class="msg"></div>
+    </div>
+    <script>
+      const API = "http://localhost:5000";
+
+      const p = JSON.parse(localStorage.getItem("miClubParticipant") || "null");
+
+      // ==============================
+      // CHECK LOGIN
+      // ==============================
+      if (!p) {
+        alert("Please login first.");
+        location.href = "signin.html";
+      } else {
+        document.getElementById("name").value = p.name || "";
+        document.getElementById("reg").value = p.registerNumber || "";
+        document.getElementById("batch").value = p.batch || "";
+        document.getElementById("domain").value = p.domain || "";
+      }
+
+      // ==============================
+      // EVENT ENROLLMENT
+      // ==============================
+      document
+        .getElementById("f")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const eventType = document.getElementById("type").value.trim();
+
+          const venue = document.getElementById("venue").value.trim();
+
+          const participantEvent = document
+            .getElementById("event")
+            .value.trim();
+
+          const status = document.getElementById("status").value.trim();
+
+          const eventDate = document.getElementById("date").value.trim();
+          const certificateFile =
+            document.getElementById("certificate").files[0];
+
+          // ==============================
+          // VALIDATION
+          // ==============================
+          if (
+            !p ||
+            !p.qrToken ||
+            !eventType ||
+            !venue ||
+            !participantEvent ||
+            !status ||
+            !eventDate ||
+            !certificateFile
+          ) {
+            const msg = document.getElementById("msg");
+            msg.textContent = "❌ Please upload your certificate";
+            msg.style.display = "block";
+            msg.style.background = "#fff0f0";
+            return;
+          }
+
+          // ==============================
+          // REQUEST BODY
+          // ==============================
+          const body = {
+            qrToken: p.qrToken,
+            eventType: eventType,
+            venue: venue,
+            participantEvent: participantEvent,
+            status: status,
+            eventDate: eventDate,
+          };
+
+          console.log("Sending event data:", body);
+
+          try {
+            const response = await fetch(API + "/event-enroll", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(body),
+            });
+
+            const data = await response.json();
+
+            const msg = document.getElementById("msg");
+
+            if (!response.ok) {
+              msg.textContent =
+                "❌ " + (data.message || "Event enrollment failed");
+
+              msg.style.display = "block";
+              msg.style.background = "#fff0f0";
+
+              return;
+            }
+
+            // ==============================
+            // SUCCESS
+            // ==============================
+            msg.textContent = "✅ Event Enrollment Submitted Successfully!";
+
+            msg.style.display = "block";
+            msg.style.background = "#e8f8ee";
+
+            // Reset only event fields
+            document.getElementById("type").value = "";
+            document.getElementById("venue").value = "";
+            document.getElementById("event").value = "";
+            document.getElementById("status").value = "";
+            document.getElementById("date").value = "";
+          } catch (error) {
+            console.error("Event enrollment error:", error);
+
+            const msg = document.getElementById("msg");
+
+            msg.textContent =
+              "❌ Cannot connect to server. Please make sure backend is running.";
+
+            msg.style.display = "block";
+            msg.style.background = "#fff0f0";
+          }
+        });
+    </script>
+  </body>
+</html>
