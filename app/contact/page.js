@@ -69,7 +69,7 @@ export default function ContactPage() {
           <h3 className="font-bold text-gray-900 text-lg mb-1">Email</h3>
           <p className="text-gray-600 text-sm">
             <a href="mailto:yourmail@gmail.com" className="hover:text-[#1a124a] underline">
-              yourmail@gmail.com
+              csmcw01@gmail.com
             </a>
           </p>
         </div>
@@ -78,8 +78,8 @@ export default function ContactPage() {
           <div className="icon text-3xl text-[#231861] mb-2">☎</div>
           <h3 className="font-bold text-gray-900 text-lg mb-1">Phone</h3>
           <p className="text-gray-600 text-sm">
-            <a href="tel:+919000000000" className="hover:text-[#1a124a] underline">
-              +91 90000 00000
+            <a href="tel:+91 98946 36960" className="hover:text-[#1a124a] underline">
+              +91 98946 36960
             </a>
           </p>
         </div>

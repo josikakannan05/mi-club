@@ -18,7 +18,7 @@ export default function StaffPage() {
     { name: "Ms.S.Umamaheswari M.C.A", role: "Assistant Professor", desc: "Dedicated to developing students' academic and professional skills.", img: "/images/staff15.png" },
     { name: "Mrs.S.Alagu Parvathi M.Sc.,M.Phil", role: "Assistant Professor", desc: "Creates a positive and interactive classroom environment.", img: "/images/staff16.png" },
     { name: "Mrs.U.Indumathi M.Sc.,M.Phil", role: "Assistant Professor", desc: "Helps students build confidence and achieve academic excellence.", img: "/images/staff17.png" },
-    { name: "Dr.M.Jeyavani M.Sc.,M.Phil", role: "Assistant Professor", desc: "Promotes knowledge sharing and innovative learning.", img: "/images/staff18.png" },
+    { name: "Dr.M.Jeyavani M.Sc.,M.Phil,(Ph.D).", role: "Assistant Professor", desc: "Promotes knowledge sharing and innovative learning.", img: "/images/staff18.png" },
     { name: "Ms.Janani M.C.A", role: "Assistant Professor", desc: "Passionate about teaching and student mentoring.", img: "/images/staff 19.jpeg" },
     { name: "Ms.Sushmitha M.Sc", role: "Assistant Professor", desc: "Encourages learning through creativity and collaboration.", img: "/images/staff 20.jpeg" },
     { name: "Ms.Anusha M.Sc", role: "Assistant Professor", desc: "Committed to student success and academic development.", img: "/images/staff21.png" },

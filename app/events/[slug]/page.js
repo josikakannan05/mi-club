@@ -17,8 +17,8 @@ const eventDetails = {
       "Participants must report 15 minutes before the scheduled time.",
     ],
     incharges: [
-      { name: "Faculty Coordinator 1", role: "Assistant Professor", img: "/images/staff13 (2).png" },
-      { name: "Faculty Coordinator 2", role: "Assistant Professor", img: "/images/staff14.png" },
+      { name: "Faculty Coordinator 1", role: "Assistant Professor", img: "/images/staff6.png" },
+      { name: "Faculty Coordinator 2", role: "Assistant Professor", img: "/images/stafff8.png" },
     ],
   },
   debugging: {
@@ -53,7 +53,7 @@ const eventDetails = {
       "Judge's decision will be final.",
     ],
     incharges: [
-      { name: "Faculty Coordinator 1", role: "Assistant Professor", img: "/images/staff17.png" },
+      { name: "Faculty Coordinator 1", role: "Assistant Professor", img: "/images/staff9.png "},
       { name: "Faculty Coordinator 2", role: "Assistant Professor", img: "/images/staff18.png" },
     ],
   },
@@ -71,8 +71,8 @@ const eventDetails = {
       "Evaluation is based on the number of problems solved correctly.",
     ],
     incharges: [
-      { name: "Faculty Coordinator 1", role: "Assistant Professor", img: "/images/staff21.png" },
-      { name: "Faculty Coordinator 2", role: "Assistant Professor", img: "/images/staff23.png" },
+      { name: "Faculty Coordinator 1", role: "Assistant Professor", img: "/images/stafff8.png" },
+      { name: "Faculty Coordinator 2", role: "Assistant Professor", img: "/images/staff13 (2).png" },
     ],
   },
   webdesign: {
@@ -89,8 +89,8 @@ const eventDetails = {
       "Evaluation based on design aesthetics, creativity, and responsiveness.",
     ],
     incharges: [
-      { name: "Faculty Coordinator 1", role: "Assistant Professor", img: "/images/staff24.png" },
-      { name: "Faculty Coordinator 2", role: "Assistant Professor", img: "/images/staff25.png" },
+      { name: "Faculty Coordinator 1", role: "Assistant Professor", img: "/images/staff2.png" },
+      { name: "Faculty Coordinator 2", role: "Assistant Professor", img: "/images/stafff4.png" },
     ],
   },
 };
