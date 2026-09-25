@@ -1,21 +1,22 @@
 const mysql = require("mysql2");
 
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "MySQL@2026",
-    database: "mi_club"
+const db = mysql.createPool({
+  host: "gateway01.ap-northeast-1.prod.aws.tidbcloud.com",
+  port: 4000,
+  user: "2a23YoqqAhw6BSm.root",
+  password: "YAhXJj6Oikr2MOfdg",
+  database: "mi_club",
+  ssl: { minVersion: "TLSv1.2", rejectUnauthorized: true },
+  waitForConnections: true,
+  connectionLimit: 5,
 });
 
-db.connect((err) => {
-
-    if (err) {
-        console.error("❌ MySQL connection failed:", err.message);
-        return;
-    }
-
-    console.log("✅ MySQL connected successfully!");
-
+db.getConnection((err) => {
+  if (err) {
+    console.error("❌ TiDB connection failed:", err.message);
+    return;
+  }
+  console.log("✅ TiDB connected successfully!");
 });
 
 module.exports = db;
