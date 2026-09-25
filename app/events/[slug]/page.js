@@ -18,7 +18,7 @@ const eventDetails = {
     ],
     incharges: [
       { name: "Faculty Coordinator 1", role: "Assistant Professor", img: "/images/staff6.png" },
-      { name: "Faculty Coordinator 2", role: "Assistant Professor", img: "/images/stafff8.png" },
+      { name: "Faculty Coordinator 2", role: "Assistant Professor", img: "/images/stafff10.png" },
     ],
   },
   debugging: {
@@ -35,8 +35,8 @@ const eventDetails = {
       "Evaluation is based on correctness of fix and submission speed.",
     ],
     incharges: [
-      { name: "Faculty Coordinator 1", role: "Assistant Professor", img: "/images/staff15.png" },
-      { name: "Faculty Coordinator 2", role: "Assistant Professor", img: "/images/staff16.png" },
+      { name: "Faculty Coordinator 1", role: "Assistant Professor", img: "/images/staff8.png" },
+      { name: "Faculty Coordinator 2", role: "Assistant Professor", img: "/images/staff6.png" },
     ],
   },
   ppt: {
